@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+}
+
+
+
+.navbar{
+    background:linear-gradient(90deg,#0d6efd,#6610f2)!important;
+}
+
+.navbar-brand{
+    font-size:28px;
+    font-weight:700;
+}
+
+.nav-link{
+    color:#fff!important;
+    font-weight:500;
+    margin-left:10px;
+}
+
+.nav-link:hover{
+    color:#ffd43b!important;
+}
+
+
+
+.form-control{
+    border-radius:30px;
+}
+
+.btn-warning{
+    border-radius:30px;
+    font-weight:bold;
+}
+
+
+.carousel img{
+  .product-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;     
+    width: 100%;             
+}
+} 
+
+
+.carousel{
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+
+
+.category-card{
+    background:rgb(252, 252, 252);
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+    transition:.4s;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.category-card:hover{
+    transform:translateY(-8px);
+    background:#0d6efd;
+    color:white;
+}
+
+
+
+.card{
+    border:none;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.4s;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 12px 25px rgba(0,0,0,.25);
+}
+
+.card img{
+    height:230px;
+    object-fit:cover;
+}
+
+.card-title{
+    font-weight:600;
+}
+
+.card-text{
+    color:#666;
+}
+
+.badge{
+    font-size:14px;
+}
+
+.text-warning{
+    font-size:18px;
+}
+
+
+
+.btn-primary{
+    border-radius:30px;
+    font-weight:600;
+}
+
+.btn-success{
+    border-radius:30px;
+    font-weight:600;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    transition:.3s;
+}
+
+
+
+.card.shadow-lg{
+    border-radius:20px;
+}
+
+input.form-control{
+    border-radius:12px;
+    padding:12px;
+}
+
+.card-header{
+    border-radius:20px 20px 0 0!important;
+}
+
+
+
+section.bg-primary{
+    background:linear-gradient(90deg,#0d6efd,#6610f2)!important;
+}
+
+
+
+footer{
+    background:#111;
+}
+
+footer h4,
+footer h5{
+    color:#fff;
+}
+
+footer a{
+    color:#ddd;
+    text-decoration:none;
+}
+
+footer a:hover{
+    color:#ffd43b;
+}
+
+footer i{
+    cursor:pointer;
+    transition:.3s;
+}
+
+footer i:hover{
+    color:#ffd43b;
+    transform:scale(1.2);
+}
+
+
+
+@media(max-width:768px){
+
+.carousel img{
+    height:250px;
+}
+
+.navbar-brand{
+    font-size:22px;
+}
+
+.card img{
+    height:180px;
+}
+
+}
+
+/* Cart Drawer Styles */
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -400px; /* Hidden off-screen by default */
+  width: 350px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* When active, slide the drawer into view */
+.cart-drawer.open {
+  right: 0;
+}
+
+/* Background Overlay */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 999;
+}
+
+.cart-overlay.show {
+  display: block;
+}
+
+/* Layout inside drawer */
+.cart-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.cart-items {
+  flex-grow: 1;
+  padding: 20px 0;
+  overflow-y: auto;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-dark bg-primary mb-4">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="/">My Store</a>
+            <a href="/" class="btn btn-outline-light">Continue Shopping</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="mb-4">Shopping Cart Items</h2>
+        
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card shadow-sm p-3 mb-4 bg-white rounded">
+                    {% if cartitemsdata %}
+                        <div class="table-responsive">
+                            <table class="table align-middle">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th scope="col">Product</th>
+                                        <th scope="col" class="text-center">Price</th>
+                                        <th scope="col" class="text-center">Quantity</th>
+                                        <th scope="col" class="text-end">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in cartitemsdata %}
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    {% if item.product.image %}
+                                                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-thumbnail me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                                                    {% endif %}
+                                                    <div>
+                                                        <h6 class="mb-0">{{ item.product.name }}</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">${{ item.product.price }}</td>
+                                            <td class="text-center">
+                                                <span class="badge bg-secondary p-2">{{ item.quantity }}</span>
+                                            </td>
+                                            <td class="text-end font-weight-bold">${{ item.item_total_price }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <div class="text-center py-5">
+                            <h4>Your cart is empty!</h4>
+                            <p class="text-muted">Add items from the store to view them here.</p>
+                            <a href="/" class="btn btn-primary mt-3">Shop Now</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            {% if cartitemsdata %}
+            <div class="col-md-4">
+                <div class="card shadow-sm p-4 bg-white rounded">
+                    <h4 class="mb-3">Order Summary</h4>
+                    <hr>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Items Total:</span>
+                        <strong class="text-success">${{ total_price }}</strong>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4">
+                        <span>Shipping:</span>
+                        <span class="text-muted">FREE</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between mb-4">
+                        <h5>Grand Total:</h5>
+                        <h5 class="text-primary">${{ total_price }}</h5>
+                    </div>
+                    <button class="btn btn-warning w-100 btn-lg">Proceed to Checkout</button>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>
